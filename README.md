@@ -61,14 +61,13 @@ project — `cd` into it and skip to step 2.
 npm install
 ```
 
-Mermaid rendering is optional. The `MermaidDiagram` component tries to
-`import("mermaid")` at runtime and falls back to a plain code block if
-the package isn't installed — so the project works out of the box. To
-get rendered diagrams instead of the code-block fallback:
-
-```bash
-npm install mermaid
-```
+This installs `mermaid` along with everything else. `MermaidDiagram.tsx`
+loads it via a dynamic `import()` so it's excluded from the server
+bundle and only runs in the browser. If a specific diagram string ever
+fails to parse, that one card falls back to a plain monospace code
+block instead of breaking the page — but the package itself is a
+regular dependency, not optional, since Next's bundler needs to resolve
+it at build time.
 
 ## 3. Add your resume
 

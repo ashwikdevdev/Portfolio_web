@@ -3,12 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Renders a Mermaid diagram client-side if the optional `mermaid` package
- * is installed. If it isn't (or rendering fails), falls back to a plain
- * monospace code block so the section never breaks.
- *
- * To enable live rendering: `npm install mermaid` — no other code changes
- * needed, this component picks it up automatically.
+ * Renders a Mermaid diagram client-side. `mermaid` is imported dynamically
+ * so it's excluded from the server bundle and only loaded in the browser,
+ * but it IS a normal (required) dependency — see package.json. If a
+ * particular diagram string fails to parse/render, this falls back to a
+ * plain monospace code block instead of crashing the section.
  */
 export function MermaidDiagram({ chart, id }: { chart: string; id: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,16 +19,7 @@ export function MermaidDiagram({ chart, id }: { chart: string; id: string }) {
 
     async function render() {
       try {
-        // Optional dependency — resolved at runtime so the project builds
-        // fine even if `mermaid` was never installed.
-        const mermaidModule = await import(/* webpackIgnore: false */ "mermaid").catch(
-          () => null
-        );
-        if (!mermaidModule) {
-          if (!cancelled) setFailed(true);
-          return;
-        }
-        const mermaid = mermaidModule.default;
+        const { default: mermaid } = await import("mermaid");
         mermaid.initialize({
           startOnLoad: false,
           theme: "dark",
