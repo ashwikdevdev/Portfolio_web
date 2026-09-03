@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-canvas text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent/70 ring-offset-2 ring-offset-canvas rounded-sm;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-content px-6 md:px-10;
+  }
+
+  .card-base {
+    @apply rounded-lg border border-line bg-surface/60;
+  }
+
+  .card-hover {
+    @apply transition-shadow duration-200 hover:border-zinc-700 hover:shadow-glow-sm;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-md border border-line bg-surface px-2.5 py-1 font-mono text-xs text-muted;
+  }
+
+  .eyebrow-label {
+    @apply font-mono text-xs text-muted;
+  }
+}

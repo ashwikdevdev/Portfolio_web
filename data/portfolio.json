@@ -1,0 +1,72 @@
+{
+  "personal": {
+    "name": "Your Name",
+    "role": "Full-Stack AI Engineer | Final Year CS",
+    "tagline": "I build backend-heavy AI systems and the interfaces that make them usable.",
+    "location": "Bengaluru, India",
+    "status": "Available Jan 2027",
+    "github": "https://github.com/yourhandle",
+    "linkedin": "https://linkedin.com/in/yourhandle",
+    "email": "your.email@example.com",
+    "resumeUrl": "/resume.pdf"
+  },
+  "principles": [
+    {
+      "icon": "Target",
+      "title": "Ownership",
+      "desc": "End-to-end execution from architecture to production Docker deployments.",
+      "proof": "Single-handedly optimized vector search pipelines from prototype to prod."
+    },
+    {
+      "icon": "Users",
+      "title": "Collaboration",
+      "desc": "Pairing with design and product to ship features that hold up under real usage.",
+      "proof": "Ran weekly API-contract reviews that cut integration bugs across two teams."
+    },
+    {
+      "icon": "Compass",
+      "title": "Leadership",
+      "desc": "Setting technical direction and unblocking teammates without waiting to be asked.",
+      "proof": "Led migration of 3 internal services to a shared FastAPI template."
+    },
+    {
+      "icon": "Layers",
+      "title": "System Clarity",
+      "desc": "Designing systems a new engineer can understand from the diagram alone.",
+      "proof": "Wrote the architecture docs new hires now use for onboarding."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Async RAG Pipeline & Agent",
+      "description": "High-throughput Retrieval-Augmented Generation engine built with FastAPI and PostgreSQL, serving grounded answers over a private document corpus.",
+      "metrics": [
+        { "label": "p95 query latency", "value": "180ms", "note": "down from 1.2s" },
+        { "label": "vector memory overhead", "value": "-40%", "note": "after index tuning" }
+      ],
+      "tags": ["Python", "FastAPI", "PostgreSQL", "Docker", "RAG"],
+      "mermaid": "graph TD; A[FastAPI Gateway] --> B[Embedding Service]; B --> C[(pgvector)]; C --> D[Context Ranker]; D --> E[LLM Service]; E --> A;",
+      "highlight": "Owned the architecture end to end, including the decision to move re-ranking off the hot path to hit the 180ms latency target.",
+      "demoUrl": "https://your-backend.onrender.com",
+      "githubUrl": "https://github.com/yourhandle/rag-agent"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Sigma Infosolutions Ltd",
+      "role": "Tech Intern",
+      "period": "Jun 2026 - Dec 2026",
+      "highlights": [
+        "Architected full-stack AI components using React, TypeScript, FastAPI, and Postgres.",
+        "Created standardized internal API wrappers that cut integration time across teams.",
+        "Mentored two incoming interns on the team's testing and deployment workflow."
+      ]
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "TypeScript", "C++", "SQL"],
+    "backend_ai": ["FastAPI", "PostgreSQL", "RAG/LLMs", "Docker", "Nginx"],
+    "frontend": ["React", "Vite", "Next.js", "Tailwind CSS"],
+    "infra_tools": ["Git", "GitHub Actions", "Linux", "Postman"]
+  }
+}
